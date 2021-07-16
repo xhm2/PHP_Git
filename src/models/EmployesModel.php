@@ -59,28 +59,41 @@ class EmployesModel {
     }
 
 
-    public function updateEmployes(){
-        $request = $this->connexion->prepare('UPDATE employes SET description=:description WHERE id_employes=:id');
+    public function updateEmployes($prenom, $nom, $sexe, $service, $date_embauche, $salaire){
+        $request = $this->connexion->prepare('UPDATE employes SET prenom=:prenom, nom=:nom, sexe=:sexe, service=:service, date_embauche=:date_embauche,salaire:salaire WHERE id_employes=:id');
 
-        $id = 2;
+        
        
 
-        $request->execute([
-            ':id' => $id,
+        $request->execute(array(
+            
+            ':prenom' => $prenom,
+            ':nom' => $nom,
+            ':sexe' => $sexe,
+            ':service' => $service,
+            ':date_embauche' => $date_embauche,
+            ':salaire' => $salaire,
             
             
-        ]);
+        ));
 
     }
 
-    public function delete(){
+    public function delete($id_employes, $prenom, $nom, $sexe, $service, $date_embauche, $salaire){
         
-        $id = 4;
+        
 
         $request = $this->connexion->prepare('DELETE FROM employes WHERE id_employes=:id');
 
         $request->execute([
-            ':id' => $id,
+            'id_employes'=> $id_employes,
+            ':prenom' => $prenom,
+            ':nom' => $nom,
+            ':sexe' => $sexe,
+            ':service' => $service,
+            ':date_embauche' => $date_embauche,
+            ':salaire' => $salaire,
+            
         ]);
     }
 

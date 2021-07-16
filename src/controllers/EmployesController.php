@@ -39,17 +39,19 @@ class EmployesController {
         $employesModel->add($this->id_employes,$this->prenom, $this->nom, $this->sexe, $this->service, $this->date_embauche, $this->salaire);
     }
 
-    public function getAllEmployes($id_employes){
-        $employesModel = new EmployesModel();
-        return $employesModel->getAllEmployes($id_employes);
-    }
+    // public function getAllEmployes($id_employes){
+    //     $employesModel = new EmployesModel();
+    //     return $employesModel->getAllEmployes();
+    // }
 
-    public function list(){
+    public function listEmployes(){
         $employesModel = new EmployesModel();
         return $employesModel->getAllEmployes();
     }
 
-    public function getOneEmploye($id_employes){
+    
+
+    public function oneEmploye($id_employes){
         $employesModel = new EmployesModel();
         return $employesModel->getOneEmploye($id_employes);
     }
