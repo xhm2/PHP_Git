@@ -6,7 +6,7 @@ class Database {
 
     private $host = "localhost";
 
-    private $dbname = "projet_php";
+    private $dbname = "exo_git";
 
     private $username = "root";
 
