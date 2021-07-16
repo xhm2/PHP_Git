@@ -1,0 +1,11 @@
+Créer le dépôt comme indiqué sur le WORKFLOW.
+
+PROJET : Créer un CRUD en collaboration.
+
+1. Créer une page index.php qui présente le projet.
+2. Créer une page afficher_employes.php qui affiche toutes les infos de tous les employés. Pour chaque employé, afficher un lien vers update_employes.php & un lien vers supprimer_employes.php.
+3. Sur la page afficher_employes.php, créer un formulaire GET permettant de chercher des employés via leur prénom. Ces employés sont affichés sur cette même page.
+4. Créer une page update_employes.php qui permet de mettre à jour les infos d'un employé.
+5. Créer une page supprimer_employes.php qui supprime un employé.
+6. Toutes les pages contiennent une navbar. Cette navbar contient un lien qui envoie vers index.php et un lien qui envoie vers afficher_employes.php.
+

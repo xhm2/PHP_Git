@@ -1,0 +1,2 @@
+src est le dossier source de notre application web. 
+On ajoute dedans le dossier des controllers et des models. 
