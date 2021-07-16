@@ -51,16 +51,13 @@ class EmployesController {
 
     
 
-    public function oneEmploye($id_employes){
+    public function oneEmploye($prenom, $nom, $sexe, $service, $date_embauche, $salaire){
         $employesModel = new EmployesModel();
-        return $employesModel->getOneEmploye($id_employes);
+        return $employesModel->getOneEmploye($prenom, $nom, $sexe, $service, $date_embauche, $salaire);
     }
 
-    
-    
-    
 
-    public function getsIdEmployes(){
+    public function getIdEmployes(){
         return $this->id_employes;
     }
 

@@ -4,8 +4,33 @@ require_once('../views/templates/header.php');
 
 
 
+
+
+
+// $newEmployes = new EmployesController(NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+// $getEmployes = $newEmployes->getOneEmploye();
+
+function getEMploye($id_employes){
+if(!empty($_GET['id_employes'])){
+    $request = $this->connexion->prepare('SELECT * FROM employes WHERE id_employes=:$_GET[id_employes]');
+
+    $request->execute(array(
+        'id_employes'=>$id_employes,
+        
+    ));
+
+    $result = $request->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    
+  }
+}
+
 $newEmployes = new EmployesController(NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 $employes = $newEmployes->listEmployes();
+
+$EmployesController = new EmployesController(NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+$getEmploye=$EmployesController->getEMploye();
 
 
 ?>
@@ -17,17 +42,17 @@ $employes = $newEmployes->listEmployes();
                   <div class="card shadow-lg border-0 rounded-lg mt-5">
                       <div class="card-header"><h3 class="text-center font-weight-light my-4">Mettre à jour</h3></div>
                       <div class="card-body">
-                          <form enctype="multipart/form-data" action="update_employes.php" method="post">
+                          <form enctype="multipart/form-data" action="update_employes.php" method="get">
                               <div class="form-floating mb-3">
-                                    <select name="id_employe" id="id_employe">
+                                    <select name="id_employes" id="id_employes">
                                       <option value="">--Choississez une employe--</option>
                                       <?php foreach($employes as $values): ?>
-                                      <option value="<?=$values['id_employes']?>"><?=$values['nom']?></option>
+                                      <option value="<?=$values['id_employes']?>"><?=$values['id_employes']?></option>
                                       <?php endforeach; ?>
                                     </select>
                                 </div>
                                 <div class="form-floating mb-3">
-                                      <input class="form-control" id="prenom" type="text" name="prenom" placeholder="" />
+                                      <input class="form-control" id="prenom" type="text" name="prenom" />
                                       <label for="prenom">Prénom</label>
                                 </div>
                                 <div class="form-floating mb-3">
@@ -39,11 +64,11 @@ $employes = $newEmployes->listEmployes();
                                       <label for="sexe">sexe</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                      <input type=text id="service" name="service">
+                                      <input class="form-control" id="service" type="text" name="service" />
                                       <label for="service">Service</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                      <input type="text" name="date_embauche" id="date_embauche">
+                                      <input class="form-control" id="date_embauche" type="text" name="date_embauche" />
                                       <label for="date_embauche">Date d'embauche</label>
                                 </div>
                                 <div class="form-floating mb-3">

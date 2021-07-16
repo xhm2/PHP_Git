@@ -46,12 +46,19 @@ class EmployesModel {
     }
 
 
-    public function getOneEmploye($id_employes){
+    public function getOneEmploye($prenom, $nom, $sexe, $service, $date_embauche, $salaire){
         $request = $this->connexion->prepare('SELECT * FROM employes WHERE id_employes=:id');
 
-        $request->execute([
-            ':id' => $id_employes,
-        ]);
+        $request->execute(array(
+            
+            ':prenom' => $prenom,
+            ':nom' => $nom,
+            ':sexe' => $sexe,
+            ':service' => $service,
+            ':date_embauche' => $date_embauche,
+            ':salaire' => $salaire,
+
+        ));
 
         $result = $request->fetchAll(PDO::FETCH_ASSOC);
 
